@@ -64,10 +64,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
     ];
 
     protected $routeMiddleware = [
-        'validateEmail' => \App\Http\Middleware\ValidateEmail::class,
-        'validateAuthToken' => \App\Http\Middleware\ValidateAuthToken::class,
+        
     ];
 }

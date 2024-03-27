@@ -1,5 +1,9 @@
 <?php
 
+use Laravel\Passport\Http\Middleware\CheckClientCredentials;
+use Laravel\Passport\Passport;
+use Laravel\Passport\{ AuthCode, Client, Token, RefreshToken};
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -40,6 +44,11 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+Passport::useTokenModel(Token::class);
+Passport::useRefreshTokenModel(RefreshToken::class);
+Passport::useAuthCodeModel(AuthCode::class);
+Passport::useClientModel(Client::class);
 
 /*
 |--------------------------------------------------------------------------
