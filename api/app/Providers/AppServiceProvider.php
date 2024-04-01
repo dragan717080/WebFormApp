@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passport\{ Passport, Client, RefreshToken, Token, AuthCode };
 
 class AppServiceProvider extends ServiceProvider
 {

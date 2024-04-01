@@ -3,32 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\BaseModelController;
-use App\Repositories\AccountRepository;
+use App\Services\{ AuthService, TokenService };
+use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
 
-class AccountController extends BaseModelController
+class AccountController extends Controller
 {
     protected $responseBuilder;
 
-    public function __construct(protected AccountRepository $accountRepository) {
-        parent::__construct($this->accountRepository);
-    }
+    public function __construct(
+        protected TokenService $tokenService,
+        private AuthService $authService,
+    ) {}
 
-    public function create(Request $req)
-    {
-        return $this->responseBuilder->postResponse(
-            $req->request->all(),
-            ['name', 'website', 'phone']
+    public function getAll(): JsonResponse {
+        $accessTokenId = $this->tokenService->getZohoAccessToken()->id;
+
+        return $this->authService->getAllRecords(
+            $accessTokenId,
+            'account'
         );
     }
 
-    public function update(string $id, Request $req)
+    public function create(Request $req): JsonResponse
     {
-        return $this->responseBuilder->updateResponse(
-            $id,
-            $req->request->all(),
-            ['name', 'website', 'phone']
-        );
+        $accessTokenId = $this->tokenService->getZohoAccessToken()->id;
+
+        $data = [
+            'data' => [
+                [
+                    'Account_Name' => $req->input('name'),
+                    'Website' => $req->input('website'),
+                    'Phone' => $req->input('phone')
+                ]
+            ]
+        ];
+
+        return $this->authService->createRecord($accessTokenId, 'account', $data);
     }
 }

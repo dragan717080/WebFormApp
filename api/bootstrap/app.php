@@ -45,10 +45,10 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-Passport::useTokenModel(Token::class);
+/* Passport::useTokenModel(Token::class);
 Passport::useRefreshTokenModel(RefreshToken::class);
 Passport::useAuthCodeModel(AuthCode::class);
-Passport::useClientModel(Client::class);
+Passport::useClientModel(Client::class); */
 
 /*
 |--------------------------------------------------------------------------
