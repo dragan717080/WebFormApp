@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Zoho Puvi Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Poppins', sans-serif;
+  /* color: var(--font); */
+}
+
+.row {
+  @apply flex justify-center items-center;
+}
+
+.row-h {
+  @apply flex justify-center;
+}
+
+.row-v {
+  @apply flex items-center;
+}
+
+.row-end {
+  @apply flex justify-end;
+}
+
+.col-v {
+  @apply flex justify-center flex-col;
+}
+
+.col-h {
+  @apply flex items-center flex-col;
+}
+
+.inline-h {
+  @apply inline-flex justify-center;
+}
+
+.pointer {
+  @apply cursor-pointer;
+}
+
+.bg-main {
+  background-color: #332532;
+}
+
+.t-main {
+  font-family: 'Asap', sans-serif;
+}
+
+.u {
+  @apply uppercase;
+}
+
+.bg-logo {
+  background-color: #f75239;
+}
+
+.bg-img {
+  @apply bg-cover bg-no-repeat bg-center;
+}
+
+.text-three-dots-wrapper {
+  @apply whitespace-nowrap overflow-hidden text-ellipsis;
+}
+
+.max-w-fit {
+  max-width: fit-content;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.extrabold {
+  @apply font-extrabold;
+}
+
+.t-wrap {
+  text-wrap: wrap;
+}
+
+.gradient-title {
+  background: linear-gradient(169.4deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-title-alt {
+  background: linear-gradient(169.4deg, #f13ea2 -6.01%, #8926b3 36.87%, #2f7cf0 78.04%, #d013e2 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-title-name {
+  background: linear-gradient(169.4deg, #c60c24 -6.01%, #960919 36.87%, #9a091a 78.04%, #3b040a 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #1D4ED8, #0369A1, #38BDF8);
+  width: 10px;
+  height: 80px;
+  border-radius: 26px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+#navbar-portal-root {
+  display: block;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  overflow: auto;
+  border-radius: 0.5rem;
+  z-index: 2;
+}
+
+.navbar-portal-content {
+  border: 1px solid #ccc;
+  position: fixed;
+  border-radius: 0.5rem;
+  padding: 10px;
+  -webkit-animation: fade-in-from-none 0.6s ease-in-out;
+  animation: fade-in-from-none 0.6s ease-in-out;
+  z-index: 40;
+  background: white;
+  color: #4B5563;
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(136.91deg, #468ef9 -12.5%, #0c66ee 107.5%);
+}
+
+.t-primary {
+  @apply text-primary;
+}
+
+.error {
+  @apply text-red-500 mt-1;
+}
+
+.Vue-Toastification__toast--success {
+  background-color: #41b782 !important;
+}

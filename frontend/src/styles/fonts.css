@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Zoho Puvi Regular';
+  src: local('Zoho-Puvi-Regular'), url(./src/assets/fonts/Zoho-Puvi-Regular.otf) format('opentype');
+}
+
+.zoho {
+  font-family: 'Zoho Puvi Regular';
+}
