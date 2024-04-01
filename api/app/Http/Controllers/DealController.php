@@ -28,7 +28,6 @@ class DealController extends Controller
         return $allDeals;
     }
 
-    // To do: types
     public function create(Request $req): JsonResponse {
         $accessTokenId = $this->tokenService->getZohoAccessToken()->id;
         $account = $req->input('selected');
